@@ -1,19 +1,22 @@
 package ro.project.store_management_tool.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 
 @Entity
 @Data
-@Table (name="PRODUCTS")
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Builder
+@Table(
+        name = "PRODUCTS",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "uc_product_barcode", columnNames = {"barcode"})
+        }
+)
 public class ProductEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,13 +24,5 @@ public class ProductEntity implements Serializable {
     private String name;
     private Double price;
     private String producer;
-
-    @Override
-    public String toString() {
-        return "ProductEntity {" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", producer='" + producer + '\'' +
-                '}';
-    }
+    private String barcode;
 }

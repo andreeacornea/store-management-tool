@@ -8,6 +8,7 @@ public class EntityObjectMother {
         return ProductEntity.builder()
                 .name("Chocolate")
                 .price(Double.valueOf(10))
+                .barcode("abcdef")
                 .producer("Milka").build();
     }
 }
