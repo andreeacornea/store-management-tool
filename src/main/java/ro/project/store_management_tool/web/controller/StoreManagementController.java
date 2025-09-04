@@ -33,7 +33,7 @@ public class StoreManagementController {
     produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Add product to store")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "202", description = "Accepted"),
             @ApiResponse(responseCode = "400", description = "Bad Request", content =
             @Content(schema = @Schema(implementation = Error.class))),
             @ApiResponse(responseCode = "400", description = "Internal Server Error", content =
