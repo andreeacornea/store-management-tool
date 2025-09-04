@@ -5,6 +5,7 @@ import ro.project.store_management_tool.domain.entity.ProductEntity;
 import ro.project.store_management_tool.model.ProductDetails;
 import ro.project.store_management_tool.objectmother.EntityObjectMother;
 import ro.project.store_management_tool.objectmother.ProductObjectMother;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AssemblerTest {

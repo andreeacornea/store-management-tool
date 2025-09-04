@@ -1,8 +1,8 @@
 package ro.project.store_management_tool.helper;
 
 import org.springframework.stereotype.Component;
-import ro.project.store_management_tool.domain.entity.*;
-import ro.project.store_management_tool.model.*;
+import ro.project.store_management_tool.domain.entity.ProductEntity;
+import ro.project.store_management_tool.model.ProductDetails;
 
 @Component
 public class Assembler {
