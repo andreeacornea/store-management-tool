@@ -52,7 +52,7 @@ class StoreManagementControllerTest {
                         .content(objectMapper.writeValueAsString(validProduct))
                         .header("TraceId", "12345")
                         .header("ApplicationUser", "user"))
-                .andExpect(status().isAccepted());
+                .andExpect(status().isCreated());
     }
 
     @Test

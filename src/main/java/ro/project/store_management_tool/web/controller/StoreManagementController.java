@@ -36,7 +36,7 @@ public class StoreManagementController {
     produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Add product to store")
     @ApiResponses({
-            @ApiResponse(responseCode = "202", description = "Accepted"),
+            @ApiResponse(responseCode = "201", description = "Created"),
             @ApiResponse(responseCode = "400", description = "Bad Request", content =
             @Content(schema = @Schema(implementation = Error.class))),
             @ApiResponse(responseCode = "422", description = "Unprocessable Entity", content =
@@ -55,7 +55,7 @@ public class StoreManagementController {
         MDC.remove("data");
 
         storeManagementService.addProduct(product);
-        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping (path = "product", produces = MediaType.APPLICATION_JSON_VALUE)
