@@ -39,4 +39,8 @@ public class StoreManagementService {
         }
 
     }
+
+    public ProductDetails getProductByBarcode( String barcode) {
+        return null;
+    }
 }

@@ -14,10 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ro.project.store_management_tool.model.Error;
 import ro.project.store_management_tool.model.ProductDetails;
 import ro.project.store_management_tool.service.StoreManagementService;
@@ -57,5 +54,28 @@ public class StoreManagementController {
 
         storeManagementService.addProduct(product);
         return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+    }
+
+    @GetMapping (path = "product", consumes = MediaType.APPLICATION_JSON_VALUE,
+             produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "Get product by barcode")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "OK", content =
+            @Content(schema = @Schema(implementation = ProductDetails.class))),
+            @ApiResponse(responseCode = "400", description = "Bad Request", content =
+            @Content(schema = @Schema(implementation = Error.class))),
+            @ApiResponse(responseCode = "422", description = "Unprocessable Entity", content =
+            @Content(schema = @Schema(implementation = Error.class))),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error", content =
+            @Content(schema = @Schema(implementation = Error.class)))
+    })
+    public ResponseEntity<ProductDetails> getProductByBarcode (@RequestParam @Valid @NotBlank String barcode,
+                                            @Valid @NotBlank @RequestHeader(name = "TraceId") String traceId,
+                                            @RequestHeader(name = "ApplicationUser", required = false) String applicationUser) {
+
+        log.info("Retrieve product operation started");
+
+        ProductDetails productDetails = storeManagementService.getProductByBarcode(barcode);
+        return ResponseEntity.status(HttpStatus.OK).body(productDetails);
     }
 }
