@@ -7,11 +7,16 @@ import java.io.Serializable;
 
 @Entity
 @Data
-@Table (name="PRODUCTS")
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Builder
+@Table(
+        name = "PRODUCTS",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "uc_product_barcode", columnNames = {"barcode"})
+        }
+)
 public class ProductEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

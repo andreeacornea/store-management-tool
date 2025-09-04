@@ -23,6 +23,8 @@ public class Assembler {
         return ProductDetails.builder()
                 .name(productEntity.getName())
                 .producer(productEntity.getProducer())
-                .price(productEntity.getPrice() != null ? BigDecimal.valueOf(productEntity.getPrice()): null).build();
+                .barcode(productEntity.getBarcode())
+                .price(productEntity.getPrice() != null ?
+                        BigDecimal.valueOf(productEntity.getPrice()): null).build();
     }
 }

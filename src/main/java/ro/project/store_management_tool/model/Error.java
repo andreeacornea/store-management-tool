@@ -1,14 +1,12 @@
 package ro.project.store_management_tool.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
 public class Error {
     String errorCode;
     String errorMessage;

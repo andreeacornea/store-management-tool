@@ -19,6 +19,7 @@ import ro.project.store_management_tool.model.Error;
 import ro.project.store_management_tool.model.ProductDetails;
 import ro.project.store_management_tool.service.StoreManagementService;
 
+
 @Slf4j
 @RestController
 @Validated
@@ -43,9 +44,10 @@ public class StoreManagementController {
             @ApiResponse(responseCode = "500", description = "Internal Server Error", content =
             @Content(schema = @Schema(implementation = Error.class)))
     })
-    public ResponseEntity<Void> addProduct (@RequestBody @Valid ProductDetails product,
-                                            @Valid @NotBlank @RequestHeader(name = "TraceId") String traceId,
-                                            @RequestHeader(name = "ApplicationUser", required = false) String applicationUser) {
+    public ResponseEntity<Void> addProduct (
+            @RequestBody @Valid ProductDetails product,
+            @Valid @NotBlank(message = "TraceId should not be blank") @RequestHeader(name = "TraceId") String traceId,
+            @RequestHeader(name = "ApplicationUser", required = false) String applicationUser) {
 
         log.info("Add a new product operation started");
         MDC.put("data", product.toString());
@@ -56,8 +58,7 @@ public class StoreManagementController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).build();
     }
 
-    @GetMapping (path = "product", consumes = MediaType.APPLICATION_JSON_VALUE,
-             produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping (path = "product", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Get product by barcode")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "OK", content =
@@ -69,13 +70,18 @@ public class StoreManagementController {
             @ApiResponse(responseCode = "500", description = "Internal Server Error", content =
             @Content(schema = @Schema(implementation = Error.class)))
     })
-    public ResponseEntity<ProductDetails> getProductByBarcode (@RequestParam @Valid @NotBlank String barcode,
-                                            @Valid @NotBlank @RequestHeader(name = "TraceId") String traceId,
-                                            @RequestHeader(name = "ApplicationUser", required = false) String applicationUser) {
+    public ResponseEntity<ProductDetails> getProductByBarcode
+            (@RequestParam @Valid @NotBlank(message = "Barcode should not be blank") String barcode,
+             @Valid @NotBlank(message = "TraceId should not be blank") @RequestHeader(name = "TraceId") String traceId,
+             @RequestHeader(name = "ApplicationUser", required = false) String applicationUser) {
 
         log.info("Retrieve product operation started");
 
         ProductDetails productDetails = storeManagementService.getProductByBarcode(barcode);
+
+        MDC.put("data", productDetails.toString());
+        log.info("Product retrieved logged");
+        MDC.remove("data");
         return ResponseEntity.status(HttpStatus.OK).body(productDetails);
     }
 }
