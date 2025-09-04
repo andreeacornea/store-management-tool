@@ -6,6 +6,7 @@ import org.slf4j.MDC;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import ro.project.store_management_tool.exception.DbException;
@@ -15,11 +16,21 @@ import ro.project.store_management_tool.model.Error;
 @RestControllerAdvice
 public class ExceptionController {
 
-    @ExceptionHandler(HttpMessageNotReadableException.class)
+    @ExceptionHandler({HttpMessageNotReadableException.class,
+            MethodArgumentNotValidException.class})
     public final ResponseEntity<Object> handleBadRq(Exception ex, HttpServletRequest request) {
         Error error = Error.builder()
                 .errorCode("ERR_01")
-                .errorMessage(ex.getMessage() != null ? ex.getMessage() : "Bad request")
+                .errorMessage(
+                    switch (ex) {
+                            case HttpMessageNotReadableException e -> e.getMessage();
+                            case MethodArgumentNotValidException e ->
+                                    e.getBindingResult().getFieldErrors().stream()
+                                    .findFirst()
+                                    .map(err-> err.getDefaultMessage())
+                                    .orElse("Bad request");
+                            default -> "Bad request";
+                        })
                 .build();
 
         MDC.put("data", error.toString());

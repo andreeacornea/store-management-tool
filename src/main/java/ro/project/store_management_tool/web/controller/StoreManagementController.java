@@ -5,12 +5,15 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -21,6 +24,7 @@ import ro.project.store_management_tool.service.StoreManagementService;
 
 @Slf4j
 @RestController
+@Validated
 public class StoreManagementController {
 
     private StoreManagementService storeManagementService;
@@ -42,8 +46,8 @@ public class StoreManagementController {
             @ApiResponse(responseCode = "500", description = "Internal Server Error", content =
             @Content(schema = @Schema(implementation = Error.class)))
     })
-    public ResponseEntity<Void> addProduct (@RequestBody ProductDetails product,
-                                            @RequestHeader(name = "TraceId") String traceId,
+    public ResponseEntity<Void> addProduct (@RequestBody @Valid ProductDetails product,
+                                            @Valid @NotBlank @RequestHeader(name = "TraceId") String traceId,
                                             @RequestHeader(name = "ApplicationUser", required = false) String applicationUser) {
 
         log.info("Add a new product operation started");
