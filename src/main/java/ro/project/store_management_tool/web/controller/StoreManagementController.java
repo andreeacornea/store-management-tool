@@ -34,7 +34,7 @@ public class StoreManagementController {
         this.storeManagementService = storeManagementService;
     }
 
-    @PostMapping (path = "add-product", consumes = MediaType.APPLICATION_JSON_VALUE,
+    @PostMapping (path = "product", consumes = MediaType.APPLICATION_JSON_VALUE,
     produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Add product to store")
     @ApiResponses({
