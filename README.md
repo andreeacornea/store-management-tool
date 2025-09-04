@@ -22,4 +22,4 @@ Store management tool contains the following operations:
 
 
 
-Insomnia project with tests is exported and can be find in /test/resources
+## Insomnia project with tests is exported and can be find in /test/resources
