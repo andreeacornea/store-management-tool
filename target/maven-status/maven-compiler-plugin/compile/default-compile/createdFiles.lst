@@ -1,0 +1,9 @@
+ro/project/store_management_tool/web/controller/StoreManagementController.class
+ro/project/store_management_tool/config/OpenApiConfig.class
+ro/project/store_management_tool/domain/entity/ProductEntity.class
+ro/project/store_management_tool/model/ProductDetails.class
+ro/project/store_management_tool/model/Error.class
+ro/project/store_management_tool/service/StoreManagementService.class
+ro/project/store_management_tool/StoreManagementToolApplication.class
+ro/project/store_management_tool/helper/Assembler.class
+ro/project/store_management_tool/domain/repository/ProductRepository.class

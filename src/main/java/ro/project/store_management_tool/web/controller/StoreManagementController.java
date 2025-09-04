@@ -43,6 +43,6 @@ public class StoreManagementController {
                                             @RequestHeader(name = "TraceId") String traceId,
                                             @RequestHeader(name = "ApplicationUser", required = false) String applicationUser) {
         storeManagementService.addProduct(product);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
     }
 }

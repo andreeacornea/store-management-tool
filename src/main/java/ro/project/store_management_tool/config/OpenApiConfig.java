@@ -1,24 +1,21 @@
 package ro.project.store_management_tool.config;
 
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Contact;
-import io.swagger.v3.oas.models.info.Info;
-import org.springframework.context.annotation.Bean;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-public class OpenApiConfig {
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 
-    @Bean
-    public OpenAPI customOpenAPI() {
-        return new OpenAPI()
-                .info(new Info()
-                        .title("Store Management Tool API")
-                        .description("Store management tool")
-                        .version("1.0.0")
-                        .contact(new Contact()
-                                .name("Andreea Cornea")
-                                .email("andreeacornea.a@gmail.com"))
-                );
-    }
+@Configuration
+@OpenAPIDefinition(
+        info = @Info(
+                title = "Store Management Tool API",
+                description = "Store management tool",
+                version = "1.0.0",
+                contact = @Contact(
+                        email = "andreeacornea.a@gmail.com"
+                )
+        )
+)
+public class OpenApiConfig {
 }
