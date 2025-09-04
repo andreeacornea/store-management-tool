@@ -13,6 +13,7 @@ import ro.project.store_management_tool.exception.NotFoundException;
 import ro.project.store_management_tool.helper.Assembler;
 import ro.project.store_management_tool.model.ProductDetails;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,15 +64,23 @@ public class StoreManagementService {
                 .orElse(List.of());
 
         if (productDetailsList.size() > 1) {
+            log.error("Too many products found for barcode:" + barcode);
             throw new DbException("Too many products found for barcode: " + barcode);
         } else if (productDetailsList.isEmpty()) {
+            log.error("Product not found for barcode: " + barcode);
             throw new NotFoundException("Product not found for barcode: " + barcode);
         } else {
             return productDetailsList.get(0);
         }
     }
 
-    public void updatePriceByBarcode(@NotBlank(message = "Barcode is required") String barcode) {
+    public void updatePriceByBarcode(String barcode, BigDecimal price) {
+        int updated = productRepository.updatePriceByBarcode(barcode, price.doubleValue());
+
+        if (updated == 0) {
+            log.error("Product with barcode " + barcode + " not found");
+            throw new NotFoundException("Product with barcode " + barcode + " not found");
+        }
     }
 }
 

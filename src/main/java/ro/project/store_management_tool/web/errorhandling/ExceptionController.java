@@ -12,6 +12,7 @@ import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 import ro.project.store_management_tool.exception.DbException;
 import ro.project.store_management_tool.exception.NotFoundException;
 import ro.project.store_management_tool.model.Error;
@@ -24,12 +25,14 @@ public class ExceptionController {
             MethodArgumentNotValidException.class,
             ConstraintViolationException.class,
             MissingRequestHeaderException.class,
-            MissingServletRequestParameterException.class})
+            MissingServletRequestParameterException.class,
+            NoResourceFoundException.class})
     public final ResponseEntity<Object> handleBadRq(Exception ex, HttpServletRequest request) {
         Error error = Error.builder()
                 .errorCode("ERR_01")
                 .errorMessage(
                     switch (ex) {
+                            case NoResourceFoundException e -> e.getMessage();
                             case MissingServletRequestParameterException e -> e.getMessage();
                             case HttpMessageNotReadableException e -> e.getMessage();
                             case MissingRequestHeaderException e -> e.getMessage();
