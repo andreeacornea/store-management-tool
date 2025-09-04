@@ -105,9 +105,9 @@ public class StoreManagementController {
              @NotBlank(message = "TraceId should not be blank") @RequestHeader(name = "TraceId") String traceId,
              @RequestHeader(name = "ApplicationUser", required = false) String applicationUser) {
 
-        log.info("Update price " + price + " for product barcode " + barcode);
-
+        log.info("Update price {} for product barcode {}", price, barcode);
         storeManagementService.updatePriceByBarcode(barcode, price);
+        log.info("Price successfully updated");
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

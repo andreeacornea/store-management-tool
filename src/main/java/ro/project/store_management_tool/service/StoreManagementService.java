@@ -64,8 +64,10 @@ public class StoreManagementService {
                 .orElse(List.of());
 
         if (productDetailsList.size() > 1) {
+            log.error("Too many products found for barcode:" + barcode);
             throw new DbException("Too many products found for barcode: " + barcode);
         } else if (productDetailsList.isEmpty()) {
+            log.error("Product not found for barcode: " + barcode);
             throw new NotFoundException("Product not found for barcode: " + barcode);
         } else {
             return productDetailsList.get(0);
@@ -76,6 +78,7 @@ public class StoreManagementService {
         int updated = productRepository.updatePriceByBarcode(barcode, price.doubleValue());
 
         if (updated == 0) {
+            log.error("Product with barcode " + barcode + " not found");
             throw new NotFoundException("Product with barcode " + barcode + " not found");
         }
     }
