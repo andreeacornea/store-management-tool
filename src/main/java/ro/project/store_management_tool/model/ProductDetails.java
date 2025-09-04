@@ -14,4 +14,12 @@ public class ProductDetails {
     BigDecimal price;
     String producer;
 
+    @Override
+    public String toString() {
+        return "ProductDetails {" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", producer='" + producer + '\'' +
+                '}';
+    }
 }

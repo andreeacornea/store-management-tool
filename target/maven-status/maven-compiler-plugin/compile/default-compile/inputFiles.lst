@@ -1,9 +1,13 @@
 /Users/andreeaalinacornea/Documents/ing/store-management-tool/src/main/java/ro/project/store_management_tool/StoreManagementToolApplication.java
+/Users/andreeaalinacornea/Documents/ing/store-management-tool/src/main/java/ro/project/store_management_tool/config/BaseWebMvcConfigurationSupport.java
+/Users/andreeaalinacornea/Documents/ing/store-management-tool/src/main/java/ro/project/store_management_tool/config/LoggerRequestInterceptorAdapter.java
 /Users/andreeaalinacornea/Documents/ing/store-management-tool/src/main/java/ro/project/store_management_tool/config/OpenApiConfig.java
 /Users/andreeaalinacornea/Documents/ing/store-management-tool/src/main/java/ro/project/store_management_tool/domain/entity/ProductEntity.java
 /Users/andreeaalinacornea/Documents/ing/store-management-tool/src/main/java/ro/project/store_management_tool/domain/repository/ProductRepository.java
+/Users/andreeaalinacornea/Documents/ing/store-management-tool/src/main/java/ro/project/store_management_tool/exception/DbException.java
 /Users/andreeaalinacornea/Documents/ing/store-management-tool/src/main/java/ro/project/store_management_tool/helper/Assembler.java
 /Users/andreeaalinacornea/Documents/ing/store-management-tool/src/main/java/ro/project/store_management_tool/model/Error.java
 /Users/andreeaalinacornea/Documents/ing/store-management-tool/src/main/java/ro/project/store_management_tool/model/ProductDetails.java
 /Users/andreeaalinacornea/Documents/ing/store-management-tool/src/main/java/ro/project/store_management_tool/service/StoreManagementService.java
 /Users/andreeaalinacornea/Documents/ing/store-management-tool/src/main/java/ro/project/store_management_tool/web/controller/StoreManagementController.java
+/Users/andreeaalinacornea/Documents/ing/store-management-tool/src/main/java/ro/project/store_management_tool/web/errorhandling/ExceptionController.java

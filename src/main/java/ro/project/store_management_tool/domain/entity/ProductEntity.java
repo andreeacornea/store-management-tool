@@ -15,4 +15,13 @@ public class ProductEntity implements Serializable {
     private String name;
     private Double price;
     private String producer;
+
+    @Override
+    public String toString() {
+        return "ProductEntity {" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", producer='" + producer + '\'' +
+                '}';
+    }
 }
