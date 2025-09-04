@@ -107,7 +107,7 @@ public class StoreManagementController {
 
         log.info("Update price " + price + " for product barcode " + barcode);
 
-        storeManagementService.updatePriceByBarcode(barcode);
+        storeManagementService.updatePriceByBarcode(barcode, price);
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
