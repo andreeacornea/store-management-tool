@@ -1,0 +1,676 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1756999746840
+  modified: 1756999746840
+  description: ""
+collection:
+  - name: store-management-tool
+    meta:
+      id: fld_b54ceffa669f4458b42fbd80298a31ab
+      created: 1756999792821
+      modified: 1757000522188
+      sortKey: -1756999792821
+      description: ""
+    children:
+      - url: http://localhost:8080/product
+        name: /product - Created
+        meta:
+          id: req_3e6285a61dd24e009a3493612c005e84
+          created: 1756999811990
+          modified: 1757001306197
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800170
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Chocolate",
+            	"price": 10,
+            	"producer": "Milka",
+            	"barcode": "{{ _.uuid }}"
+            }
+        headers:
+          - name: accept
+            value: "*/*"
+          - name: TraceId
+            value: trace123
+          - name: ApplicationUser
+            value: user-test
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - already inserted
+        meta:
+          id: req_c7092748265246dda1a525a9dc7b7d06
+          created: 1756999841162
+          modified: 1756999878404
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800120
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Chocolate",
+            	"price": 10,
+            	"producer": "Milka",
+            	"barcode": "123456"
+            }
+        headers:
+          - name: accept
+            value: "*/*"
+          - name: TraceId
+            value: trace123
+          - name: ApplicationUser
+            value: user-test
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - blank header
+        meta:
+          id: req_4ee5fe66382e4959a7c13610a9695316
+          created: 1756999849540
+          modified: 1756999897736
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800145
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Chocolate",
+            	"price": 10,
+            	"producer": "Milka",
+            	"barcode": "123456"
+            }
+        headers:
+          - name: accept
+            value: "*/*"
+            id: pair_f20c3ed47f4540459c86edb6c84f1e17
+          - name: TraceId
+            value: ""
+            id: pair_8b0934bffc9942368d110e710a06374e
+            disabled: false
+          - name: ApplicationUser
+            value: user-test
+            id: pair_e9fe3952d34e4d65ae78a45bdda3377b
+          - name: Content-Type
+            value: application/json
+            id: pair_0ba54178f9924e47a707b284548a479e
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - invalid body
+        meta:
+          id: req_9e213586520c44dea220e806bc5d11ef
+          created: 1756999922435
+          modified: 1756999928511
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800157.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Chocolate",
+            	"producer": "Milka",
+            	"barcode": "123456"
+            }
+        headers:
+          - name: accept
+            value: "*/*"
+          - name: TraceId
+            value: trace123
+          - name: ApplicationUser
+            value: user-test
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - missing header
+        meta:
+          id: req_0d6488bf4308461996b6d105ce253c18
+          created: 1757000145806
+          modified: 1757000154952
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800132.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Chocolate",
+            	"price": 10,
+            	"producer": "Milka",
+            	"barcode": "123456"
+            }
+        headers:
+          - name: accept
+            value: "*/*"
+            id: pair_f20c3ed47f4540459c86edb6c84f1e17
+          - name: TraceId
+            value: ""
+            id: pair_8b0934bffc9942368d110e710a06374e
+            disabled: true
+          - name: ApplicationUser
+            value: user-test
+            id: pair_e9fe3952d34e4d65ae78a45bdda3377b
+          - name: Content-Type
+            value: application/json
+            id: pair_0ba54178f9924e47a707b284548a479e
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - OK
+        meta:
+          id: req_4bd3b85cff4e43cbbbbea543af9245e9
+          created: 1757000252851
+          modified: 1757000269601
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800370
+        method: GET
+        parameters:
+          - name: barcode
+            value: "123456"
+            disabled: false
+        headers:
+          - name: accept
+            value: application/json
+          - name: TraceId
+            value: "1"
+          - name: ApplicationUser
+            value: test-user
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - duplicate found
+        meta:
+          id: req_e5080865546a4abe96c54f5c099ced73
+          created: 1757000286045
+          modified: 1757000286045
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800270
+        method: GET
+        parameters:
+          - name: barcode
+            value: "123456"
+            disabled: false
+        headers:
+          - name: accept
+            value: application/json
+          - name: TraceId
+            value: "1"
+          - name: ApplicationUser
+            value: test-user
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - not found
+        meta:
+          id: req_b9bb53848fe74ed3bf4ac299b413d295
+          created: 1757000293379
+          modified: 1757000301595
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800220
+        method: GET
+        parameters:
+          - name: barcode
+            value: "12345"
+            disabled: false
+            id: pair_868d1015931a43eaa36f63a68d10b444
+        headers:
+          - name: accept
+            value: application/json
+          - name: TraceId
+            value: "1"
+          - name: ApplicationUser
+            value: test-user
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - blank query param
+        meta:
+          id: req_e9f0d10830c94c9d97addadf61286b34
+          created: 1757000322671
+          modified: 1757000325424
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800320
+        method: GET
+        parameters:
+          - name: barcode
+            value: ""
+            disabled: false
+            id: pair_7532d2aa155e4ba59f8baccc826e163e
+        headers:
+          - name: accept
+            value: application/json
+          - name: TraceId
+            value: "1"
+          - name: ApplicationUser
+            value: test-user
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - missing query param
+        meta:
+          id: req_2ca48e8617b54f7daf9b48d906578a05
+          created: 1757000333227
+          modified: 1757000334777
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800295
+        method: GET
+        parameters:
+          - name: barcode
+            value: ""
+            disabled: true
+            id: pair_7532d2aa155e4ba59f8baccc826e163e
+        headers:
+          - name: accept
+            value: application/json
+          - name: TraceId
+            value: "1"
+          - name: ApplicationUser
+            value: test-user
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - blank header
+        meta:
+          id: req_d90802ae6e414782ae422ae86932b51f
+          created: 1757000383883
+          modified: 1757000387730
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800345
+        method: GET
+        parameters:
+          - name: barcode
+            value: "123456"
+            disabled: false
+        headers:
+          - name: accept
+            value: application/json
+            id: pair_365600ab719e46008b8125c6b10eb751
+          - name: TraceId
+            value: ""
+            id: pair_2865f6cbb22043719734d1db1ba7538d
+          - name: ApplicationUser
+            value: test-user
+            id: pair_410c58bc0c324446a0a09c8a6ad8f317
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - missing header
+        meta:
+          id: req_07e2ab5bf5c348148a2111f2e94db021
+          created: 1757000395132
+          modified: 1757000397639
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800357.5
+        method: GET
+        parameters:
+          - name: barcode
+            value: "123456"
+            disabled: false
+        headers:
+          - name: accept
+            value: application/json
+            id: pair_446b8d5af8704f3380eeaf40bc65a467
+          - name: TraceId
+            value: "1"
+            id: pair_d45e398732db4a029583b884215267a5
+            disabled: true
+          - name: ApplicationUser
+            value: test-user
+            id: pair_ba8da2528fad40518bf84eef9a93f526
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - missing body
+        meta:
+          id: req_6abdbfa8de434a468235768a072cfb3a
+          created: 1757000413634
+          modified: 1757000418492
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800151.25
+        method: POST
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: accept
+            value: "*/*"
+          - name: TraceId
+            value: trace123
+          - name: ApplicationUser
+            value: user-test
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product/123456
+        name: /product/{barcode} - 204
+        meta:
+          id: req_3087463c587c48a987e40114ae7b5f89
+          created: 1757001360543
+          modified: 1757001391326
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800470
+        method: PUT
+        parameters:
+          - name: price
+            value: "20"
+            disabled: false
+        headers:
+          - name: accept
+            value: application/json
+          - name: TraceId
+            value: trace-12
+          - name: ApplicationUser
+            value: user
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product/1234
+        name: /product/{barcode} - not found
+        meta:
+          id: req_7951b13b23ac4d0396bb7bc63638650e
+          created: 1757002092855
+          modified: 1757002149299
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800420
+        method: PUT
+        parameters:
+          - name: price
+            value: "20"
+            disabled: false
+        headers:
+          - name: accept
+            value: application/json
+          - name: TraceId
+            value: trace-12
+          - name: ApplicationUser
+            value: user
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product/123456
+        name: /product/{barcode} - missing header
+        meta:
+          id: req_a4269a1b8dca441782f05f5d416fae7f
+          created: 1757002103960
+          modified: 1757002121112
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800395
+        method: PUT
+        parameters:
+          - name: price
+            value: "20"
+            disabled: false
+        headers:
+          - name: accept
+            value: application/json
+            id: pair_e7b073902e214f4fb10fd9f5f93ab7a4
+          - name: TraceId
+            value: trace-12
+            id: pair_f398739baebb4524a5e72fee4b267531
+            disabled: true
+          - name: ApplicationUser
+            value: user
+            id: pair_2c1e8610893e4b9bbeb0ed2c9bcfb974
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product/123456
+        name: /product/{barcode} - empty header
+        meta:
+          id: req_4bb6807e14374906ab8b38579f8024e6
+          created: 1757002111067
+          modified: 1757002123258
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800382.5
+        method: PUT
+        parameters:
+          - name: price
+            value: "20"
+            disabled: false
+        headers:
+          - name: accept
+            value: application/json
+            id: pair_02d55fa71e4b4329b0da76f24f938ae4
+          - name: TraceId
+            value: ""
+            id: pair_5805f0f075ff43d9b8e38f30b0464061
+          - name: ApplicationUser
+            value: user
+            id: pair_179094afd0154d978457b6a249b2f3b8
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product/123456
+        name: /product/{barcode} - missing price
+        meta:
+          id: req_6d37a9b6e8594eaa9ec395802ef23f29
+          created: 1757002164515
+          modified: 1757002194609
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800445
+        method: PUT
+        parameters:
+          - name: price
+            value: "20"
+            disabled: true
+            id: pair_7b93bc5c8ec94b66811f2468161d695b
+        headers:
+          - name: accept
+            value: application/json
+          - name: TraceId
+            value: trace-12
+          - name: ApplicationUser
+            value: user
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product/123456
+        name: /product/{barcode} - empty price
+        meta:
+          id: req_b879cdbbea6f4fab9aaa996f7ac15694
+          created: 1757002170485
+          modified: 1757002187554
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800432.5
+        method: PUT
+        parameters:
+          - name: price
+            value: ""
+            disabled: false
+            id: pair_6939690e684b48bebe963e5d140899d5
+        headers:
+          - name: accept
+            value: application/json
+          - name: TraceId
+            value: trace-12
+          - name: ApplicationUser
+            value: user
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product/
+        name: /product/{barcode} - empty barcode
+        meta:
+          id: req_ad6d64dc7b7e4676861edcb4ae775181
+          created: 1757002179510
+          modified: 1757002181648
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800426.25
+        method: PUT
+        parameters:
+          - name: price
+            value: "20"
+            disabled: false
+        headers:
+          - name: accept
+            value: application/json
+          - name: TraceId
+            value: trace-12
+          - name: ApplicationUser
+            value: user
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1756999752821
+    modified: 1756999752821
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1756999752820
+    modified: 1757000120570
+    isPrivate: false
+  data:
+    uuid: "{{ _.uuid }}"
+    "": ""
