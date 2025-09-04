@@ -24,7 +24,7 @@ class StoreManagementToolApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-	
+
 	@Configuration
 	static class SecurityTestConfig {
 

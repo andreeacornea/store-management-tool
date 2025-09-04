@@ -10,7 +10,7 @@ collection:
     meta:
       id: fld_b54ceffa669f4458b42fbd80298a31ab
       created: 1756999792821
-      modified: 1757000522188
+      modified: 1757002714194
       sortKey: -1756999792821
       description: ""
     children:
@@ -19,9 +19,10 @@ collection:
         meta:
           id: req_3e6285a61dd24e009a3493612c005e84
           created: 1756999811990
-          modified: 1757001306197
+          modified: 1757007024076
           isPrivate: false
-          description: ""
+          description: Barcode is unique in DB -> it should be changed or configured with
+            uuid() variable
           sortKey: -1756999800170
         method: POST
         body:
@@ -31,7 +32,7 @@ collection:
             	"name": "Chocolate",
             	"price": 10,
             	"producer": "Milka",
-            	"barcode": "{{ _.uuid }}"
+            	"barcode": "1234567"
             }
         headers:
           - name: accept
@@ -42,6 +43,12 @@ collection:
             value: user-test
           - name: Content-Type
             value: application/json
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: admin
+          password: adminpass
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -55,7 +62,7 @@ collection:
         meta:
           id: req_c7092748265246dda1a525a9dc7b7d06
           created: 1756999841162
-          modified: 1756999878404
+          modified: 1757006949409
           isPrivate: false
           description: ""
           sortKey: -1756999800120
@@ -78,6 +85,12 @@ collection:
             value: user-test
           - name: Content-Type
             value: application/json
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -91,7 +104,7 @@ collection:
         meta:
           id: req_4ee5fe66382e4959a7c13610a9695316
           created: 1756999849540
-          modified: 1756999897736
+          modified: 1757006931032
           isPrivate: false
           description: ""
           sortKey: -1756999800145
@@ -119,6 +132,12 @@ collection:
           - name: Content-Type
             value: application/json
             id: pair_0ba54178f9924e47a707b284548a479e
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -132,7 +151,7 @@ collection:
         meta:
           id: req_9e213586520c44dea220e806bc5d11ef
           created: 1756999922435
-          modified: 1756999928511
+          modified: 1757006905709
           isPrivate: false
           description: ""
           sortKey: -1756999800157.5
@@ -154,6 +173,12 @@ collection:
             value: user-test
           - name: Content-Type
             value: application/json
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -167,7 +192,7 @@ collection:
         meta:
           id: req_0d6488bf4308461996b6d105ce253c18
           created: 1757000145806
-          modified: 1757000154952
+          modified: 1757006940073
           isPrivate: false
           description: ""
           sortKey: -1756999800132.5
@@ -195,6 +220,12 @@ collection:
           - name: Content-Type
             value: application/json
             id: pair_0ba54178f9924e47a707b284548a479e
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -208,7 +239,7 @@ collection:
         meta:
           id: req_4bd3b85cff4e43cbbbbea543af9245e9
           created: 1757000252851
-          modified: 1757000269601
+          modified: 1757006497310
           isPrivate: false
           description: ""
           sortKey: -1756999800370
@@ -224,6 +255,12 @@ collection:
             value: "1"
           - name: ApplicationUser
             value: test-user
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -237,7 +274,7 @@ collection:
         meta:
           id: req_e5080865546a4abe96c54f5c099ced73
           created: 1757000286045
-          modified: 1757000286045
+          modified: 1757006546378
           isPrivate: false
           description: ""
           sortKey: -1756999800270
@@ -253,6 +290,12 @@ collection:
             value: "1"
           - name: ApplicationUser
             value: test-user
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -266,7 +309,7 @@ collection:
         meta:
           id: req_b9bb53848fe74ed3bf4ac299b413d295
           created: 1757000293379
-          modified: 1757000301595
+          modified: 1757006554934
           isPrivate: false
           description: ""
           sortKey: -1756999800220
@@ -283,6 +326,12 @@ collection:
             value: "1"
           - name: ApplicationUser
             value: test-user
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -296,7 +345,7 @@ collection:
         meta:
           id: req_e9f0d10830c94c9d97addadf61286b34
           created: 1757000322671
-          modified: 1757000325424
+          modified: 1757006527825
           isPrivate: false
           description: ""
           sortKey: -1756999800320
@@ -313,6 +362,12 @@ collection:
             value: "1"
           - name: ApplicationUser
             value: test-user
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -326,7 +381,7 @@ collection:
         meta:
           id: req_2ca48e8617b54f7daf9b48d906578a05
           created: 1757000333227
-          modified: 1757000334777
+          modified: 1757006537008
           isPrivate: false
           description: ""
           sortKey: -1756999800295
@@ -343,6 +398,12 @@ collection:
             value: "1"
           - name: ApplicationUser
             value: test-user
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -356,7 +417,7 @@ collection:
         meta:
           id: req_d90802ae6e414782ae422ae86932b51f
           created: 1757000383883
-          modified: 1757000387730
+          modified: 1757006518818
           isPrivate: false
           description: ""
           sortKey: -1756999800345
@@ -375,6 +436,12 @@ collection:
           - name: ApplicationUser
             value: test-user
             id: pair_410c58bc0c324446a0a09c8a6ad8f317
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -388,7 +455,7 @@ collection:
         meta:
           id: req_07e2ab5bf5c348148a2111f2e94db021
           created: 1757000395132
-          modified: 1757000397639
+          modified: 1757006508990
           isPrivate: false
           description: ""
           sortKey: -1756999800357.5
@@ -408,6 +475,12 @@ collection:
           - name: ApplicationUser
             value: test-user
             id: pair_ba8da2528fad40518bf84eef9a93f526
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -421,7 +494,7 @@ collection:
         meta:
           id: req_6abdbfa8de434a468235768a072cfb3a
           created: 1757000413634
-          modified: 1757000418492
+          modified: 1757006920850
           isPrivate: false
           description: ""
           sortKey: -1756999800151.25
@@ -438,6 +511,12 @@ collection:
             value: user-test
           - name: Content-Type
             value: application/json
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -451,7 +530,7 @@ collection:
         meta:
           id: req_3087463c587c48a987e40114ae7b5f89
           created: 1757001360543
-          modified: 1757001391326
+          modified: 1757006392581
           isPrivate: false
           description: ""
           sortKey: -1756999800470
@@ -467,6 +546,12 @@ collection:
             value: trace-12
           - name: ApplicationUser
             value: user
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -480,7 +565,7 @@ collection:
         meta:
           id: req_7951b13b23ac4d0396bb7bc63638650e
           created: 1757002092855
-          modified: 1757002149299
+          modified: 1757006444112
           isPrivate: false
           description: ""
           sortKey: -1756999800420
@@ -496,6 +581,12 @@ collection:
             value: trace-12
           - name: ApplicationUser
             value: user
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -509,7 +600,7 @@ collection:
         meta:
           id: req_a4269a1b8dca441782f05f5d416fae7f
           created: 1757002103960
-          modified: 1757002121112
+          modified: 1757006452320
           isPrivate: false
           description: ""
           sortKey: -1756999800395
@@ -529,6 +620,12 @@ collection:
           - name: ApplicationUser
             value: user
             id: pair_2c1e8610893e4b9bbeb0ed2c9bcfb974
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -542,7 +639,7 @@ collection:
         meta:
           id: req_4bb6807e14374906ab8b38579f8024e6
           created: 1757002111067
-          modified: 1757002123258
+          modified: 1757006460887
           isPrivate: false
           description: ""
           sortKey: -1756999800382.5
@@ -561,6 +658,12 @@ collection:
           - name: ApplicationUser
             value: user
             id: pair_179094afd0154d978457b6a249b2f3b8
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -574,7 +677,7 @@ collection:
         meta:
           id: req_6d37a9b6e8594eaa9ec395802ef23f29
           created: 1757002164515
-          modified: 1757002194609
+          modified: 1757006406162
           isPrivate: false
           description: ""
           sortKey: -1756999800445
@@ -591,6 +694,12 @@ collection:
             value: trace-12
           - name: ApplicationUser
             value: user
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -604,7 +713,7 @@ collection:
         meta:
           id: req_b879cdbbea6f4fab9aaa996f7ac15694
           created: 1757002170485
-          modified: 1757002187554
+          modified: 1757006419883
           isPrivate: false
           description: ""
           sortKey: -1756999800432.5
@@ -621,6 +730,12 @@ collection:
             value: trace-12
           - name: ApplicationUser
             value: user
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -634,10 +749,45 @@ collection:
         meta:
           id: req_ad6d64dc7b7e4676861edcb4ae775181
           created: 1757002179510
-          modified: 1757002181648
+          modified: 1757006435726
           isPrivate: false
           description: ""
           sortKey: -1756999800426.25
+        method: PUT
+        parameters:
+          - name: price
+            value: "20"
+            disabled: false
+        headers:
+          - name: accept
+            value: application/json
+          - name: TraceId
+            value: trace-12
+          - name: ApplicationUser
+            value: user
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: user
+          password: password
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product/123456
+        name: /product/{barcode} - 401 Unauthorized
+        meta:
+          id: req_82c0a6c8bb714bd186332c6ded74b052
+          created: 1757006383417
+          modified: 1757006383417
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800457.5
         method: PUT
         parameters:
           - name: price
@@ -658,19 +808,99 @@ collection:
             send: true
             store: true
           rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - 401
+        meta:
+          id: req_68fbf463878548b0a84bc44b2ec517a0
+          created: 1757006487130
+          modified: 1757006499946
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800376.25
+        method: GET
+        parameters:
+          - name: barcode
+            value: "123456"
+            disabled: false
+        headers:
+          - name: accept
+            value: application/json
+          - name: TraceId
+            value: "1"
+          - name: ApplicationUser
+            value: test-user
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: true
+          username: user
+          password: password
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/product
+        name: /product - 401 Unauthorized
+        meta:
+          id: req_1bb97aa24b174483864dddb65effe069
+          created: 1757006573352
+          modified: 1757006576229
+          isPrivate: false
+          description: ""
+          sortKey: -1756999800195
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Chocolate",
+            	"price": 10,
+            	"producer": "Milka",
+            	"barcode": "{{ _.uuid }}"
+            }
+        headers:
+          - name: accept
+            value: "*/*"
+          - name: TraceId
+            value: trace123
+          - name: ApplicationUser
+            value: user-test
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
     id: jar_99d30891da4bdcebc63947a8fc17f076de878684
     created: 1756999752821
-    modified: 1756999752821
+    modified: 1757006560568
+  cookies:
+    - key: JSESSIONID
+      value: 6564A89D9DE3B808D2DDFAE3E35822B1
+      domain: localhost
+      path: /
+      httpOnly: true
+      hostOnly: true
+      creation: 2025-09-04T17:22:40.567Z
+      lastAccessed: 2025-09-04T17:22:40.567Z
+      id: edaa9b15-2e6d-48bc-a8dd-adabf4ad4077
 environments:
   name: Base Environment
   meta:
     id: env_99d30891da4bdcebc63947a8fc17f076de878684
     created: 1756999752820
-    modified: 1757000120570
+    modified: 1757006859231
     isPrivate: false
   data:
-    uuid: "{{ _.uuid }}"
-    "": ""
+    dynamic_uuid: ""
