@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.*;
 import ro.project.store_management_tool.model.Error;
 import ro.project.store_management_tool.model.ProductDetails;
 import ro.project.store_management_tool.service.StoreManagementService;
+
+import java.math.BigDecimal;
 
 
 @Slf4j
@@ -46,7 +49,7 @@ public class StoreManagementController {
     })
     public ResponseEntity<Void> addProduct (
             @RequestBody @Valid ProductDetails product,
-            @Valid @NotBlank(message = "TraceId should not be blank") @RequestHeader(name = "TraceId") String traceId,
+            @NotBlank(message = "TraceId should not be blank") @RequestHeader(name = "TraceId") String traceId,
             @RequestHeader(name = "ApplicationUser", required = false) String applicationUser) {
 
         log.info("Add a new product operation started");
@@ -71,8 +74,8 @@ public class StoreManagementController {
             @Content(schema = @Schema(implementation = Error.class)))
     })
     public ResponseEntity<ProductDetails> getProductByBarcode
-            (@RequestParam @Valid @NotBlank(message = "Barcode should not be blank") String barcode,
-             @Valid @NotBlank(message = "TraceId should not be blank") @RequestHeader(name = "TraceId") String traceId,
+            (@RequestParam @NotBlank(message = "Barcode should not be blank") String barcode,
+             @NotBlank(message = "TraceId should not be blank") @RequestHeader(name = "TraceId") String traceId,
              @RequestHeader(name = "ApplicationUser", required = false) String applicationUser) {
 
         log.info("Retrieve product operation started");
@@ -83,5 +86,29 @@ public class StoreManagementController {
         log.info("Product retrieved logged");
         MDC.remove("data");
         return ResponseEntity.status(HttpStatus.OK).body(productDetails);
+    }
+
+    @PutMapping (path = "product/{barcode}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "Get product by barcode")
+    @ApiResponses({
+            @ApiResponse(responseCode = "204", description = "No Content"),
+            @ApiResponse(responseCode = "400", description = "Bad Request", content =
+            @Content(schema = @Schema(implementation = Error.class))),
+            @ApiResponse(responseCode = "422", description = "Unprocessable Entity", content =
+            @Content(schema = @Schema(implementation = Error.class))),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error", content =
+            @Content(schema = @Schema(implementation = Error.class)))
+    })
+    public ResponseEntity<ProductDetails> updateProductPriceByBarcode
+            (@RequestParam @NotNull(message = "Price should be completed") BigDecimal price,
+             @NotBlank(message = "Barcode is required") @PathVariable("barcode") String barcode,
+             @NotBlank(message = "TraceId should not be blank") @RequestHeader(name = "TraceId") String traceId,
+             @RequestHeader(name = "ApplicationUser", required = false) String applicationUser) {
+
+        log.info("Update price " + price + " for product barcode " + barcode);
+
+        storeManagementService.updatePriceByBarcode(barcode);
+
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

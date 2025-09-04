@@ -1,5 +1,6 @@
 package ro.project.store_management_tool.service;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,9 @@ public class StoreManagementService {
         } else {
             return productDetailsList.get(0);
         }
+    }
+
+    public void updatePriceByBarcode(@NotBlank(message = "Barcode is required") String barcode) {
     }
 }
 
