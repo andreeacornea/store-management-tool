@@ -1,10 +1,7 @@
 package ro.project.store_management_tool.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -13,6 +10,7 @@ import java.io.Serializable;
 @Table (name="PRODUCTS")
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Builder
 public class ProductEntity implements Serializable {
     @Id
@@ -21,13 +19,5 @@ public class ProductEntity implements Serializable {
     private String name;
     private Double price;
     private String producer;
-
-    @Override
-    public String toString() {
-        return "ProductEntity {" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", producer='" + producer + '\'' +
-                '}';
-    }
+    private String barcode;
 }

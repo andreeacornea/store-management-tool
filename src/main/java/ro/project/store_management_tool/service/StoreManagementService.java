@@ -35,12 +35,12 @@ public class StoreManagementService {
             log.info("Successfully inserted payment to DB");
         } catch (Exception e) {
             log.error("Exception occured: ", e.getMessage());
-            throw new DbException("Database exception occured while saving product");
+            throw new DbException("Database exception occurred while saving product");
         }
 
     }
 
-    public ProductDetails getProductByBarcode( String barcode) {
+    public ProductDetails getProductByBarcode(String barcode) {
         return null;
     }
 }

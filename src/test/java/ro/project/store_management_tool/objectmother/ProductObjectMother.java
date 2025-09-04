@@ -10,6 +10,7 @@ public class ProductObjectMother {
         return ProductDetails.builder()
                 .name("Chocolate")
                 .price(BigDecimal.valueOf(10))
+                .barcode("abcdef")
                 .producer("Milka").build();
     }
 }
