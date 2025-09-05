@@ -19,7 +19,7 @@ collection:
         meta:
           id: req_3e6285a61dd24e009a3493612c005e84
           created: 1756999811990
-          modified: 1757007024076
+          modified: 1757055264358
           isPrivate: false
           description: Barcode is unique in DB -> it should be changed or configured with
             uuid() variable
@@ -32,7 +32,7 @@ collection:
             	"name": "Chocolate",
             	"price": 10,
             	"producer": "Milka",
-            	"barcode": "1234567"
+            	"barcode": "123456789"
             }
         headers:
           - name: accept
@@ -239,50 +239,16 @@ collection:
         meta:
           id: req_4bd3b85cff4e43cbbbbea543af9245e9
           created: 1757000252851
-          modified: 1757006497310
+          modified: 1757055270678
           isPrivate: false
           description: ""
           sortKey: -1756999800370
         method: GET
         parameters:
           - name: barcode
-            value: "123456"
+            value: "12345678"
             disabled: false
-        headers:
-          - name: accept
-            value: application/json
-          - name: TraceId
-            value: "1"
-          - name: ApplicationUser
-            value: test-user
-        authentication:
-          type: basic
-          useISO88591: false
-          disabled: false
-          username: user
-          password: password
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/product
-        name: /product - duplicate found
-        meta:
-          id: req_e5080865546a4abe96c54f5c099ced73
-          created: 1757000286045
-          modified: 1757006546378
-          isPrivate: false
-          description: ""
-          sortKey: -1756999800270
-        method: GET
-        parameters:
-          - name: barcode
-            value: "123456"
-            disabled: false
+            id: pair_3f2ee8e3abf54de2a68de633541b94e9
         headers:
           - name: accept
             value: application/json
@@ -309,14 +275,14 @@ collection:
         meta:
           id: req_b9bb53848fe74ed3bf4ac299b413d295
           created: 1757000293379
-          modified: 1757006554934
+          modified: 1757055445039
           isPrivate: false
           description: ""
           sortKey: -1756999800220
         method: GET
         parameters:
           - name: barcode
-            value: "12345"
+            value: "1234"
             disabled: false
             id: pair_868d1015931a43eaa36f63a68d10b444
         headers:
@@ -744,12 +710,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:8080/product/
+      - url: http://localhost:8080/product/%20
         name: /product/{barcode} - empty barcode
         meta:
           id: req_ad6d64dc7b7e4676861edcb4ae775181
           created: 1757002179510
-          modified: 1757006435726
+          modified: 1757055204358
           isPrivate: false
           description: ""
           sortKey: -1756999800426.25
@@ -848,7 +814,7 @@ collection:
         meta:
           id: req_1bb97aa24b174483864dddb65effe069
           created: 1757006573352
-          modified: 1757006576229
+          modified: 1757055470110
           isPrivate: false
           description: ""
           sortKey: -1756999800195
@@ -860,7 +826,7 @@ collection:
             	"name": "Chocolate",
             	"price": 10,
             	"producer": "Milka",
-            	"barcode": "{{ _.uuid }}"
+            	"barcode": "123456789"
             }
         headers:
           - name: accept
@@ -884,17 +850,17 @@ cookieJar:
   meta:
     id: jar_99d30891da4bdcebc63947a8fc17f076de878684
     created: 1756999752821
-    modified: 1757006560568
+    modified: 1757055471710
   cookies:
     - key: JSESSIONID
-      value: 6564A89D9DE3B808D2DDFAE3E35822B1
+      value: AF58602FD9B0A0AD05484BAF89FDC51A
       domain: localhost
       path: /
       httpOnly: true
       hostOnly: true
       creation: 2025-09-04T17:22:40.567Z
-      lastAccessed: 2025-09-04T17:22:40.567Z
-      id: edaa9b15-2e6d-48bc-a8dd-adabf4ad4077
+      lastAccessed: 2025-09-05T06:57:51.709Z
+      id: e52137cc-11df-4c3d-bcbc-ce6d2753f6f8
 environments:
   name: Base Environment
   meta:

@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AssemblerTest {
 
     @Test
-    public void testMapToEntity() {
+    public void assembleProductToEntity() {
         ProductDetails productDetails = ProductObjectMother.productDetails();
         Assembler assembler = new Assembler();
         ProductEntity mappedProductEntity = assembler.mapToEntity(productDetails);

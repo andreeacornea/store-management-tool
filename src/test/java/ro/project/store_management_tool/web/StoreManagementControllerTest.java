@@ -43,7 +43,7 @@ class StoreManagementControllerTest {
     }
 
     @Test
-    void addProduct_success_returnsAccepted() throws Exception {
+    void addProduct_success_returnsCreated() throws Exception {
         ProductDetails validProduct = ProductObjectMother.productDetails();
         Mockito.doNothing().when(storeManagementService).addProduct(validProduct);
 

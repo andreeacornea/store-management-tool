@@ -20,7 +20,7 @@ public class ProductRepositoryTest {
     }
 
     @Test
-    void testSaveProduct() {
+    void saveProduct_success() {
         ProductEntity productEntity = EntityObjectMother.productEntity();
         ProductEntity savedProductEntity = productRepository.save(productEntity);
 

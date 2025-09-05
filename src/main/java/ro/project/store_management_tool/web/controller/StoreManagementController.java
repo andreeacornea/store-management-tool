@@ -99,7 +99,7 @@ public class StoreManagementController {
             @ApiResponse(responseCode = "500", description = "Internal Server Error", content =
             @Content(schema = @Schema(implementation = Error.class)))
     })
-    public ResponseEntity<ProductDetails> updateProductPriceByBarcode
+    public ResponseEntity<Void> updateProductPriceByBarcode
             (@RequestParam @NotNull(message = "Price should be completed") BigDecimal price,
              @NotBlank(message = "Barcode is required") @PathVariable("barcode") String barcode,
              @NotBlank(message = "TraceId should not be blank") @RequestHeader(name = "TraceId") String traceId,

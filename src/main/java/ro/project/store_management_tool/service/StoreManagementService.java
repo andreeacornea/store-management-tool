@@ -38,12 +38,12 @@ public class StoreManagementService {
 
         try {
             productRepository.save(productEntity);
-            log.info("Successfully inserted payment to DB");
+            log.info("Successfully inserted product to DB");
         } catch (DataIntegrityViolationException e) {
-            log.error("Exception occured: ", e.getMessage());
+            log.error("Duplicate product found: {}", e.getMessage());
             throw new DbException("A product with the same barcode already exists");
         } catch (Exception e) {
-            log.error("Exception occured: ", e.getMessage());
+            log.error("Exception occured: {}", e.getMessage());
             throw new DbException("Database exception occurred while saving product");
         }
     }
@@ -63,10 +63,10 @@ public class StoreManagementService {
                 .orElse(List.of());
 
         if (productDetailsList.size() > 1) {
-            log.error("Too many products found for barcode:" + barcode);
+            log.error("Too many products found for barcode: {}", barcode);
             throw new DbException("Too many products found for barcode: " + barcode);
         } else if (productDetailsList.isEmpty()) {
-            log.error("Product not found for barcode: " + barcode);
+            log.error("Product not found for barcode: {}", barcode);
             throw new NotFoundException("Product not found for barcode: " + barcode);
         } else {
             return productDetailsList.get(0);
@@ -77,7 +77,7 @@ public class StoreManagementService {
         int updated = productRepository.updatePriceByBarcode(barcode, price.doubleValue());
 
         if (updated == 0) {
-            log.error("Product with barcode " + barcode + " not found");
+            log.error("Product with barcode {} not found", barcode);
             throw new NotFoundException("Product with barcode " + barcode + " not found");
         }
     }
